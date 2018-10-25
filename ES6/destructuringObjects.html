@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Destructuring Objects</title>
+</head>
+<body>
+    <script>
+
+        const person = {
+            first: 'Akhand',
+            last: 'Mishra',
+            country: 'India',
+            city: 'New Delhi',
+            linkedin: 'contrevien'
+        };
+
+        const { first , last, linkedin } = person;
+
+        const contrevien = {
+            first: 'Akhand',
+            last: 'Mishra',
+            links: {
+                professional: {
+                    github: 'https://github.com/Contrevien',
+                    linkedin: 'https://linkedin.com/in/contrevien'
+                },
+                mail: {
+                    google: 'akkimysite@gmail.com'
+                }
+            }
+        }
+
+        const { github, linkedin: lIn } = contrevien.links.professional;
+
+        const settings = {
+            width: 300,
+            color: 'black'
+        };
+
+        const { width = 100, height = 100, color = 'blue', fontSize = 25 } = settings;
+
+        function convertCurrency(amount) {
+            const converted = {
+                USD: amount * 0.76,
+                GPB: amount * 0.53,
+                AUD: amount * 1.01,
+                MEX: amount * 13.30
+            };
+            return converted;
+        }
+        const { USD, GPB, AUD, MEX } = convertCurrency(100);
+
+        function tipCalc({ total, tip = 0.15, tax = 0.15 } = {}) {
+            return total + (tip * total) + (tax * total);
+        };
+        const bill = tipCalc({ tip: 0.2, total: 300 });
+        console.log(bill);
+
+    </script>
+</body>
+</html>

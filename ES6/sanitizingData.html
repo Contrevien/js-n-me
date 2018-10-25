@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sanitizing Data 📋</title>
+</head>
+<body>
+    <div class="bio"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.8/purify.min.js"></script>
+    <script>
+
+        function sanitize(strings, ...values) {
+            const dirty = strings.reduce((prev, next, i) => {
+                return `${prev}${next}${values[i] || ''}`;
+            }, '');
+            console.log(dirty);
+
+            return DOMPurify.sanitize(dirty);
+        }
+
+        const first = 'Akhand';
+        const aboutMe = sanitize`I love to do evil`;
+
+        const html = `
+            <h3>${first}</h3>
+            <span>${aboutMe}</span>
+        `;
+
+        const bio = document.querySelector('.bio');
+        bio.innerHTML = html;
+
+    </script>
+</body>
+</html>

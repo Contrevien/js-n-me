@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+    // Regular
+    console.log("Some message");
+
+    // Interpolated
+    console.log("This is %s interpolated message", "an");
+
+    // Styled
+    console.log("%c This is a styled message", "background:blue;");
+
+    // warning!
+    console.warn("A warning!");
+
+    // Error :|
+    console.error("This is a dummy error");
+
+    // Info
+    console.info("This is an information");
+
+    // Testing
+    console.assert(1 === 2, "Assert 1 is not equal to 2")
+
+    // clearing
+    //console.clear();
+
+    // Viewing DOM Elements
+    console.log(document.querySelector('p'));
+    console.dir(document.querySelector('p'));
+    
+    // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This dog is ${dog.name}`);
+      console.log(`Its age is ${dog.age}`);
+      console.groupEnd(`${dog.name}`);
+    })
+
+    // counting
+    console.count('Text');
+    console.count('Text');
+    console.count('Text');
+    console.count('Text');
+    console.count('Text');
+    console.count('Text');
+    console.count('Text');
+
+    // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/Contrevien')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      })
+
+  </script>
+</body>
+</html>

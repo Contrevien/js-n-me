@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>For Of</title>
+</head>
+<body>
+
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+    <p>lorem</p>
+
+    <script>
+        
+        const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
+
+        console.group("With for-of");
+        for(const cut of cuts) {
+            console.log(cut);
+        }
+        console.groupEnd("With for-of");
+
+        console.group("Generator");
+        const meat = cuts.entries();
+        console.log(meat);
+        console.groupEnd("Generator");
+
+        console.group("Generator and for-of");
+        for(let [i, cut] of cuts.entries()) {
+            console.log(`${cut} is at ${i}`);
+        }
+        console.groupEnd();
+
+        console.group("Arguments var");
+        function addUpNumbers() {
+            console.log(arguments);
+        }
+        addUpNumbers(15,156,34,15,43,2,32);
+        console.groupEnd();
+
+        console.group("For-of with string");
+        const test = 'Some string';
+        console.log(test);
+        for (let char of test) {
+            console.log(char);
+        }
+        console.groupEnd();
+
+        console.group("Node Lists");
+        const ps = document.querySelectorAll('p');
+        for (const para of ps) {
+            console.log(para);
+        }
+        console.groupEnd();
+
+        console.group("Objects");
+        const apple = {
+            color: 'Red',
+            size: 'Medium',
+            weight: 50,
+            sugar: 10
+        }
+        for (const prop in apple) {
+            console.log(prop, apple[prop]);
+        }
+        console.groupEnd();
+
+        
+
+    </script>
+</body>
+</html>

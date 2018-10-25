@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Spread Intro</title>
+</head>
+<body>
+    <script>
+        const featured = ['Deep Dish', 'Peperoni', 'Hawaiian'];
+        const speciality = ['Meatzza', 'Spicy Mama', 'Margherita'];
+        
+        const deepDish = {
+            pizzaName: 'Deep Dish',
+            size: 'Medium',
+            ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
+        };
+
+        console.group('Spread String');
+        console.log('example'); 
+        console.log([...'example']);
+        console.groupEnd();
+
+        console.group('Pizzas');
+        const pizzas = [...featured, 'Veg', ...speciality];
+        console.log(pizzas);
+        console.groupEnd();
+        
+        console.group('Copying arrays');
+        console.log(pizzas);
+        const fridayPizzas = [...pizzas];
+        fridayPizzas[1] = "Burst";
+        console.log(fridayPizzas);
+        console.groupEnd();
+        
+        
+    </script>
+</body>
+</html>

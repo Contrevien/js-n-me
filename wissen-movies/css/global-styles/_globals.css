@@ -1,0 +1,76 @@
+:root {
+    --button-shadow: 2px 5px 20px rgba(0, 0, 0, 0.13);
+    --button-hover: 2px 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+  }
+  
+  /* ------------------------------------ */
+  a {
+      margin: 0px;
+      transition: all 0.4s;
+      -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+  }
+  
+  a:focus {
+      outline: none !important;
+  }
+  
+  a:hover {
+      text-decoration: none;
+  }
+  
+  /* ------------------------------------ */
+  h1,h2,h3,h4,h5,h6 {margin: 0px;}
+  
+  p {margin: 0px;}
+
+  span {margin: 20px;}
+  
+  ul, li {
+      margin: 0px;
+      list-style-type: none;
+  }
+  
+  
+  /* ------------------------------------ */
+  input {
+    display: block;
+      outline: none;
+      border: none !important;
+  }
+  
+  textarea {
+    display: block;
+    outline: none;
+  }
+  
+  textarea:focus, input:focus {
+    border-color: transparent !important;
+  }
+  
+  /* ------------------------------------ */
+  button {
+      outline: none !important;
+      border: none;
+      background: transparent;
+  }
+  
+  button:hover {
+      cursor: pointer;
+  }
+  
+  iframe {
+      border: none !important;
+  }
+  

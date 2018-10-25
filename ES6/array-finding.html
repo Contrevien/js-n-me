@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array Finding</title>
+</head>
+<body>
+    <script>
+        const users = [];
+        fetch('https://api.github.com/users')
+        .then(data => data.json())
+        .then(data => {
+            users.push(...data);
+            afterFetch();
+        });
+
+        function afterFetch() {
+            console.group('finding a user');
+            const user = users.find(user => user.login === 'defunkt');
+            console.log(user);
+            console.groupEnd();
+            
+            console.group('finding index of user');
+            const userIndex = users.findIndex(user => user.login === 'defunkt');
+            console.log(userIndex);
+            console.groupEnd();
+            
+        }
+        
+    </script>
+</body>
+</html>

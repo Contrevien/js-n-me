@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('../../assets/fonts/Raleway/Raleway-Regular.ttf');
+}
+@font-face {
+    font-family: 'Raleway-bold';
+    src: url('../../assets/fonts/Raleway/Raleway-Bold.ttf');
+}
+@font-face {
+    font-family: 'Raleway-semibold';
+    src: url('../../assets/fonts/Raleway/Raleway-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Allura-Regular';
+    src: url('../../assets/fonts/Allura/Allura-Regular.ttf');
+}
+
+@import url('https://fonts.googleapis.com/css?family=Paytone+One');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
+:root {
+    --cursive: 'Allura-Regular';
+    --heading: 'Paytone One';
+    --text: 'Montserrat';
+    --optional: 'Raleway';
+}

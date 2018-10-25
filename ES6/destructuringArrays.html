@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Destructuring Arrays</title>
+</head>
+<body>
+    <script>
+
+        const details = ['Akhand Mishra', 125, 'contrevien'];
+        const [name, id, username] = details;
+
+        const data = 'Basketball,Sports,2935,24';
+        const [itemName, category, sku, inventory] = data.split(',');
+
+        const team = ['Akhand', 'Person2', 'Person3', 'Person4', 'Person5', 'Person6'];
+        const [captain, assistant, ...players] = team;
+
+        let inRing = 'Hulk Hogan';
+        let onSide = 'The Rock';
+        [onSide, inRing] = [onSide, inRing];
+
+    </script>
+</body>
+</html>

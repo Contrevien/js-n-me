@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("wall_coastal.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.drum {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 3px solid #474747;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    background: rgba(255, 255, 255, 0.6);
+    margin: 20px;
+    transition: all 0.07s;
+}
+
+.play {
+    transform: scale(1.1);
+    border: 3px solid #eee;
+}
+
+.sound {
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 14px;
+    color: rgba(255, 0, 0, 0.7);
+}

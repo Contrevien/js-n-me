@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BounceOnHover</title>
+    <style>
+        html, body {
+            background: #ffc600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 35px;
+            text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
+            color: white;
+        }
+
+        .jump {
+            cursor: url('http://csscursor.info/source/santahand.png'), default;
+        }
+
+        .jump span {
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .jump span:hover {
+            transform: translateY(-10px) rotate(10deg) scale(2);
+        }
+    </style>
+</head>
+<body>
+    <div class="jump">SPREADS!</div>
+    <script>
+        const div = document.querySelector('.jump');
+        const spans = [...div.textContent].map(el => `<span>${el}</span>`).join('');
+        div.innerHTML = spans;
+    </script>
+</body>
+</html>

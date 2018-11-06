@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promises</title>
+</head>
+<body>
+    <script>
+        const p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Data Retrived");
+            }, 200);
+        });
+
+        p
+            .then(data => {
+                console.group('Normal Promise');
+                console.log(data);
+                console.groupEnd('Normal Promise');
+                })
+
+        const posts = [
+            {title: "Javascript is good", author: "Me", id: 1},
+            {title: "Javascript is bad", author: "Old me", id: 2},
+            {title: "Javascript is everything", author: "JSLovers", id: 3},
+        ];
+
+        const authors = [
+            {name: "Me", twitter: "@me", bio: "ha ha ha"},
+            {name: "Old me", twitter: "@oldme", bio: "ha ha ha"},
+            {name: "JSLovers", twitter: "@jslovers", bio: "ha ha ha"},
+        ];
+
+        function getPostById(id) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const post = posts.find(post => post.id === id);
+                    if(post) {
+                        resolve(post);
+                    } else {
+                        reject(Error("No post was found!"));
+                    }
+                }, 200);
+            })
+        }
+
+        function hydrateAuthor(post) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const authorDetails = authors.find(person => person.name === post.author);
+                    if(authorDetails) {
+                        post.author = authorDetails;
+                        resolve(post);
+                    } else {
+                        reject(Error("Can not find the author!"));
+                    }
+                }, 2000);
+            })
+        }
+
+        getPostById(2)
+            .then(post => {
+                return hydrateAuthor(post);
+            })
+            .then(post => {
+                console.group('Chained Promise');
+                console.log(post);
+                console.groupEnd('Chained Promise');
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        
+        const weather = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({ temp: 26, conditions: "Clear" });
+            }, 2000);
+        });
+
+        const slack = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(["Updated the PR", "Added new component"]);
+            }, 500);
+        })
+
+        Promise.all([weather, slack])
+            .then(responses => {
+                console.group('Many promises at once');
+                const [weather, slack] = responses;
+                console.log(weather, slack);
+                console.groupEnd('Many promises at once');
+            })
+        
+        const postsPromise = fetch("https://api.github.com/users/100");
+        const streetCardsPromise = fetch("http://data.ratp.fr/api/datasets/1.0/search/?q=paris");
+
+        Promise
+            .all([postsPromise, streetCardsPromise])
+            .then(responses => {
+                return Promise.all(responses.map(res => res.json()))
+            })
+            .then(responses => {
+                console.group('Real Promise');
+                console.log(responses)
+                console.groupEnd('Real Promise');
+            })
+    </script>
+</body>
+</html>

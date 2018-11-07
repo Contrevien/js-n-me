@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Symbols Primitve</title>
+</head>
+<body>
+    <script>
+        const me = Symbol('Akhand');
+        const person = Symbol('Akhand');
+        // me and person are not equal
+
+        const classRoom = {
+            [Symbol('Wes')]: { grade: 54, gender: 'male' },
+            [Symbol('Wes')]: { grade: 74, gender: 'male' },
+            [Symbol('Akhand')]: { grade: 64, gender: 'male' },
+        }
+
+        const syms = Object.getOwnPropertySymbols(classRoom);
+        const data = syms.map(sym => classRoom[sym]);
+        console.log(data);
+    </script>
+</body>
+</html>
